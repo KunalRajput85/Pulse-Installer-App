@@ -1,0 +1,434 @@
+{
+  "appConfig": {
+    "id": 101,
+    "version": 1,
+    "relDate": "2026-08-15",
+    "themeConfig": {
+      "formBackgroundColor": "#F5F7FA",
+      "formTextColor": "#0D3D6B",
+      "formSubtextColor": "#5A6B7B",
+      "headerBackgroundColor": "#1B5E9B",
+      "headerTextColor": "#FFFFFF",
+      "accentColor": "#00A878",
+      "dangerColor": "#D64545"
+    },
+    "logoConfig": {
+      "splashScreenUrl": "https://cdn.appilary.com/rmpulse/splash.png",
+      "clientLogoUrl": "https://cdn.appilary.com/rmpulse/client_logo.png",
+      "companyLogoUrl": "https://cdn.appilary.com/appilary/logo.png"
+    },
+    "fontsConfig": {
+      "fontSize": "16px",
+      "fontStyle": "Roboto",
+      "formTextFontSize": "18px",
+      "formTextFontStyle": "Roboto",
+      "formSubtextFontSize": "14px",
+      "formSubtextFontStyle": "Roboto"
+    },
+    "buttons": {
+      "home": {
+        "label": "Home",
+        "hide": 0
+      },
+      "upload": {
+        "label": "Upload",
+        "hide": 0
+      },
+      "settings": {
+        "label": "Settings",
+        "hide": 0
+      },
+      "report": {
+        "label": "Report",
+        "hide": 0
+      },
+      "assign": {
+        "label": "My Tasks",
+        "hide": 0
+      }
+    },
+    "apiUrls": {
+      "surveyUploadUrl": "http://10.0.2.2:4000/api/survey/upload",
+      "imageUploadUrl": "http://10.0.2.2:4000/api/media/upload",
+      "statsUrl": "http://10.0.2.2:4000/api/stats",
+      "jsonUpdateUrl": "http://10.0.2.2:4000/api/config"
+    },
+    "featureConfig": {
+      "liveCameraOnly": {
+        "active": 1
+      },
+      "offlineSync": {
+        "active": 1
+      },
+      "deviceBinding": {
+        "active": 1
+      },
+      "gpsAuthenticity": {
+        "active": 1,
+        "maxAccuracyMeters": 30,
+        "blockMockLocation": 1,
+        "blockRootedDevice": 1
+      }
+    },
+    "geoConfig": {
+      "active": 0,
+      "enforcement": "block",
+      "defaultRadiusMeters": 250,
+      "periodicTaggingSeconds": 60,
+      "trackDistance": 1,
+      "zones": [
+        {
+          "id": "z1",
+          "name": "Shirur",
+          "lat": 18.8267,
+          "lng": 74.3736,
+          "radiusMeters": 300,
+          "active": 1
+        },
+        {
+          "id": "z2",
+          "name": "Rajgurunagar",
+          "lat": 18.856,
+          "lng": 73.888,
+          "radiusMeters": 250,
+          "active": 1
+        },
+        {
+          "id": "z3",
+          "name": "Baramati",
+          "lat": 18.1514,
+          "lng": 74.5772,
+          "radiusMeters": 250,
+          "active": 1
+        },
+        {
+          "id": "z4",
+          "name": "Daund",
+          "lat": 18.4655,
+          "lng": 74.5811,
+          "radiusMeters": 200,
+          "active": 0
+        }
+      ]
+    },
+    "languageConfig": {
+      "default": "en",
+      "supported": [
+        "en",
+        "hi",
+        "mr",
+        "gu",
+        "ta",
+        "te",
+        "kn",
+        "bn"
+      ]
+    },
+    "guidelines": {
+      "en": [
+        "Reach the assigned site and stay inside the geofence zone.",
+        "Wait for good GPS accuracy before adding the site.",
+        "Capture all required photos in order using the live camera.",
+        "Match the creative & dimension to your allocation.",
+        "Gallery uploads are not allowed — live camera only.",
+        "Review the summary, then submit (saved & auto-synced offline)."
+      ]
+    }
+  },
+  "strings": {
+    "en": {
+      "app_title": "RM Pulse Installer",
+      "start": "Start Installation",
+      "next": "Next",
+      "back": "Back",
+      "submit": "Submit Report",
+      "summary_title": "Review before submitting",
+      "site_submitted": "Site submitted successfully",
+      "geofence_blocked": "You are outside the assigned work area. Move inside the zone to continue.",
+      "gps_poor": "GPS accuracy is too low. Please wait for a better signal.",
+      "mock_detected": "Mock/fake location detected. Capture blocked.",
+      "gallery_disabled": "Gallery upload is disabled. Use the live camera.",
+      "required": "This field is required"
+    },
+    "hi": {
+      "app_title": "आरएम पल्स इंस्टॉलर",
+      "start": "इंस्टॉलेशन शुरू करें",
+      "next": "आगे",
+      "back": "पीछे",
+      "submit": "रिपोर्ट सबमिट करें",
+      "summary_title": "सबमिट करने से पहले जांचें",
+      "site_submitted": "साइट सफलतापूर्वक सबमिट हुई",
+      "geofence_blocked": "आप निर्धारित कार्य क्षेत्र के बाहर हैं। जारी रखने के लिए क्षेत्र के अंदर जाएँ।",
+      "gps_poor": "जीपीएस सटीकता बहुत कम है। कृपया बेहतर सिग्नल की प्रतीक्षा करें।",
+      "mock_detected": "नकली लोकेशन का पता चला। कैप्चर अवरुद्ध।",
+      "gallery_disabled": "गैलरी अपलोड बंद है। लाइव कैमरे का उपयोग करें।",
+      "required": "यह फ़ील्ड आवश्यक है"
+    },
+    "mr": {
+      "app_title": "आरएम पल्स इंस्टॉलर",
+      "start": "इंस्टॉलेशन सुरू करा",
+      "next": "पुढे",
+      "back": "मागे",
+      "submit": "अहवाल सबमिट करा",
+      "summary_title": "सबमिट करण्यापूर्वी तपासा",
+      "site_submitted": "साइट यशस्वीरित्या सबमिट झाली",
+      "geofence_blocked": "तुम्ही नेमून दिलेल्या कार्यक्षेत्राबाहेर आहात. सुरू ठेवण्यासाठी क्षेत्रात या.",
+      "gps_poor": "जीपीएस अचूकता खूप कमी आहे. कृपया चांगल्या सिग्नलची वाट पहा.",
+      "mock_detected": "बनावट स्थान आढळले. कॅप्चर अवरोधित.",
+      "gallery_disabled": "गॅलरी अपलोड बंद आहे. लाइव्ह कॅमेरा वापरा.",
+      "required": "हे फील्ड आवश्यक आहे"
+    },
+    "gu": {
+      "app_title": "આરએમ પલ્સ ઇન્સ્ટોલર",
+      "start": "ઇન્સ્ટોલેશન શરૂ કરો",
+      "next": "આગળ",
+      "back": "પાછળ",
+      "submit": "રિપોર્ટ સબમિટ કરો",
+      "summary_title": "સબમિટ કરતા પહેલા તપાસો",
+      "site_submitted": "સાઇટ સફળતાપૂર્વક સબમિટ થઈ",
+      "geofence_blocked": "તમે સોંપાયેલ કાર્ય વિસ્તારની બહાર છો. ચાલુ રાખવા વિસ્તારમાં જાઓ.",
+      "gps_poor": "જીપીએસ ચોકસાઈ ખૂબ ઓછી છે. કૃપા કરીને સારા સિગ્નલની રાહ જુઓ.",
+      "mock_detected": "નકલી સ્થાન મળ્યું. કૅપ્ચર અવરોધિત.",
+      "gallery_disabled": "ગેલેરી અપલોડ બંધ છે. લાઇવ કૅમેરાનો ઉપયોગ કરો.",
+      "required": "આ ફીલ્ડ જરૂરી છે"
+    },
+    "ta": {
+      "app_title": "ஆர்எம் பல்ஸ் இன்ஸ்டாலர்",
+      "start": "நிறுவலைத் தொடங்கு",
+      "next": "அடுத்து",
+      "back": "பின்",
+      "submit": "அறிக்கையைச் சமர்ப்பி",
+      "summary_title": "சமர்ப்பிக்கும் முன் சரிபார்க்கவும்",
+      "site_submitted": "தளம் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது",
+      "geofence_blocked": "நீங்கள் ஒதுக்கப்பட்ட பணிப் பகுதிக்கு வெளியே உள்ளீர்கள். தொடர பகுதிக்குள் செல்லவும்.",
+      "gps_poor": "ஜிபிஎஸ் துல்லியம் மிகக் குறைவு. சிறந்த சிக்னலுக்காக காத்திருக்கவும்.",
+      "mock_detected": "போலி இருப்பிடம் கண்டறியப்பட்டது. கைப்பற்றல் தடுக்கப்பட்டது.",
+      "gallery_disabled": "கேலரி பதிவேற்றம் முடக்கப்பட்டுள்ளது. நேரடி கேமராவைப் பயன்படுத்தவும்.",
+      "required": "இந்த புலம் தேவை"
+    },
+    "te": {
+      "app_title": "ఆర్ఎం పల్స్ ఇన్‌స్టాలర్",
+      "start": "ఇన్‌స్టాలేషన్ ప్రారంభించండి",
+      "next": "తదుపరి",
+      "back": "వెనుకకు",
+      "submit": "నివేదికను సమర్పించండి",
+      "summary_title": "సమర్పించే ముందు తనిఖీ చేయండి",
+      "site_submitted": "సైట్ విజయవంతంగా సమర్పించబడింది",
+      "geofence_blocked": "మీరు కేటాయించిన పని ప్రాంతం వెలుపల ఉన్నారు. కొనసాగించడానికి ప్రాంతంలోకి వెళ్లండి.",
+      "gps_poor": "జీపీఎస్ ఖచ్చితత్వం చాలా తక్కువ. మంచి సిగ్నల్ కోసం వేచి ఉండండి.",
+      "mock_detected": "నకిలీ స్థానం గుర్తించబడింది. క్యాప్చర్ నిరోధించబడింది.",
+      "gallery_disabled": "గ్యాలరీ అప్‌లోడ్ నిలిపివేయబడింది. లైవ్ కెమెరాను ఉపయోగించండి.",
+      "required": "ఈ ఫీల్డ్ అవసరం"
+    },
+    "kn": {
+      "app_title": "ಆರ್‌ಎಂ ಪಲ್ಸ್ ಇನ್‌ಸ್ಟಾಲರ್",
+      "start": "ಸ್ಥಾಪನೆ ಪ್ರಾರಂಭಿಸಿ",
+      "next": "ಮುಂದೆ",
+      "back": "ಹಿಂದೆ",
+      "submit": "ವರದಿ ಸಲ್ಲಿಸಿ",
+      "summary_title": "ಸಲ್ಲಿಸುವ ಮೊದಲು ಪರಿಶೀಲಿಸಿ",
+      "site_submitted": "ಸೈಟ್ ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ",
+      "geofence_blocked": "ನೀವು ನಿಗದಿತ ಕೆಲಸದ ಪ್ರದೇಶದ ಹೊರಗಿದ್ದೀರಿ. ಮುಂದುವರಿಸಲು ಪ್ರದೇಶದೊಳಗೆ ಬನ್ನಿ.",
+      "gps_poor": "ಜಿಪಿಎಸ್ ನಿಖರತೆ ತುಂಬಾ ಕಡಿಮೆ. ಉತ್ತಮ ಸಿಗ್ನಲ್‌ಗಾಗಿ ಕಾಯಿರಿ.",
+      "mock_detected": "ನಕಲಿ ಸ್ಥಳ ಪತ್ತೆಯಾಗಿದೆ. ಸೆರೆಹಿಡಿಯುವಿಕೆ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ.",
+      "gallery_disabled": "ಗ್ಯಾಲರಿ ಅಪ್‌ಲೋಡ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ. ಲೈವ್ ಕ್ಯಾಮೆರಾ ಬಳಸಿ.",
+      "required": "ಈ ಕ್ಷೇತ್ರ ಅಗತ್ಯವಿದೆ"
+    },
+    "bn": {
+      "app_title": "আরএম পালস ইনস্টলার",
+      "start": "ইনস্টলেশন শুরু করুন",
+      "next": "পরবর্তী",
+      "back": "পিছনে",
+      "submit": "রিপোর্ট জমা দিন",
+      "summary_title": "জমা দেওয়ার আগে পর্যালোচনা করুন",
+      "site_submitted": "সাইট সফলভাবে জমা হয়েছে",
+      "geofence_blocked": "আপনি নির্ধারিত কাজের এলাকার বাইরে আছেন। চালিয়ে যেতে এলাকার ভিতরে যান।",
+      "gps_poor": "জিপিএস নির্ভুলতা খুব কম। ভালো সিগন্যালের জন্য অপেক্ষা করুন।",
+      "mock_detected": "নকল অবস্থান শনাক্ত হয়েছে। ক্যাপচার বন্ধ।",
+      "gallery_disabled": "গ্যালারি আপলোড বন্ধ। লাইভ ক্যামেরা ব্যবহার করুন।",
+      "required": "এই ক্ষেত্রটি আবশ্যক"
+    }
+  },
+  "appForms": [
+    {
+      "id": 1,
+      "title": "Site Details",
+      "controls": [
+        {
+          "id": 101,
+          "optype": 0,
+          "label": "Capture the installation site details below"
+        },
+        {
+          "id": 102,
+          "optype": 5,
+          "label": "Select Village",
+          "optList": "Shirur;Rajgurunagar;Baramati;Daund",
+          "validations": {
+            "mn": 1
+          },
+          "validationsMsg": {
+            "mn": "Please select a village"
+          }
+        },
+        {
+          "id": 103,
+          "optype": 1,
+          "label": "Branding Type",
+          "optList": "DWB - Digital Wall Branding;Wall Painting;High Rise;Shutter Painting",
+          "validations": {
+            "mn": 1
+          },
+          "validationsMsg": {
+            "mn": "Please choose a branding type"
+          }
+        },
+        {
+          "id": 104,
+          "optype": 23,
+          "label": "Creative",
+          "dependsOn": 102,
+          "dataUrl": "http://10.0.2.2:4000/api/lookup/creatives",
+          "validations": {
+            "mn": 1
+          },
+          "validationsMsg": {
+            "mn": "Please select a creative"
+          }
+        },
+        {
+          "id": 105,
+          "optype": 5,
+          "label": "Dimension",
+          "optList": "8x3 ft;10x4 ft;6x3 ft;20x10 ft;30x20 ft",
+          "validations": {
+            "mn": 1
+          },
+          "validationsMsg": {
+            "mn": "Please select a dimension"
+          }
+        },
+        {
+          "id": 106,
+          "optype": 4,
+          "label": "Wall / Landmark reference",
+          "validations": {
+            "mn": 0,
+            "len": "3-80",
+            "vtype": 20,
+            "dtype": 2
+          },
+          "validationsMsg": {
+            "vtype": "Please enter a valid reference"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Photo Sequence",
+      "controls": [
+        {
+          "id": 201,
+          "optype": 0,
+          "label": "Capture all 6 photos using the live camera (gallery disabled)"
+        },
+        {
+          "id": 202,
+          "optype": 6,
+          "label": "1. Before / Pre-Deployment",
+          "cam_type": 2,
+          "mul": 0,
+          "validations": {
+            "mn": 1
+          }
+        },
+        {
+          "id": 203,
+          "optype": 6,
+          "label": "2. Clean Wall / Surface Prep",
+          "cam_type": 2,
+          "mul": 0,
+          "validations": {
+            "mn": 1
+          }
+        },
+        {
+          "id": 204,
+          "optype": 6,
+          "label": "3. Installation in Progress",
+          "cam_type": 2,
+          "mul": 0,
+          "validations": {
+            "mn": 1
+          }
+        },
+        {
+          "id": 205,
+          "optype": 6,
+          "label": "4. Near Shot / Completed",
+          "cam_type": 2,
+          "mul": 0,
+          "validations": {
+            "mn": 1
+          }
+        },
+        {
+          "id": 206,
+          "optype": 6,
+          "label": "5. Long Shot / Location",
+          "cam_type": 2,
+          "mul": 1,
+          "validations": {
+            "mn": 1
+          }
+        },
+        {
+          "id": 207,
+          "optype": 6,
+          "label": "6. Unique Code / Wall ID",
+          "cam_type": 2,
+          "mul": 0,
+          "validations": {
+            "mn": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Confirmation",
+      "controls": [
+        {
+          "id": 301,
+          "optype": 3,
+          "label": "Rate the installation quality",
+          "min": 1,
+          "max": 5,
+          "validations": {
+            "mn": 1
+          }
+        },
+        {
+          "id": 302,
+          "optype": 25,
+          "label": "Site owner consent obtained (High Rise only)",
+          "validations": {
+            "mn": 0
+          }
+        },
+        {
+          "id": 303,
+          "optype": 4,
+          "label": "Installer remarks",
+          "validations": {
+            "mn": 0,
+            "len": "0-200",
+            "vtype": 20,
+            "dtype": 2
+          }
+        }
+      ]
+    }
+  ]
+}

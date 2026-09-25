@@ -1,0 +1,230 @@
+{
+  "_comment": "RM Pulse — sample per-user survey JSON. Host this file and put its URL in the json_link (c_init_xml) column of the installer's row in tblcloud_auth_pin_angular. On login the app downloads this and renders forms, language and geofencing from it. To test the toggles: (1) GEOFENCING — set appConfig.geoConfig.active to 0 to turn OFF (installer never blocked), or 1 to turn ON and enforce the zones below. A shorthand also works: put \"geofencing\": true at the top level instead of a full geoConfig. (2) LANGUAGE — set appConfig.languageConfig.default to en/hi/mr/... and the form labels + page titles below switch to that language. Shorthand: \"language\": \"hi\" at the top level.",
+
+  "geofencing": true,
+  "language": "en",
+
+  "guidelines": {
+    "en": [
+      "Reach the assigned site and stay inside the geofence zone.",
+      "Wait for good GPS accuracy before adding the site.",
+      "Capture all required photos in order using the live camera.",
+      "Match the creative & dimension to your allocation.",
+      "Gallery uploads are not allowed — live camera only.",
+      "Review the summary, then submit (saved & auto-synced offline)."
+    ],
+    "hi": [
+      "निर्धारित साइट पर पहुँचें और जियोफ़ेंस क्षेत्र के अंदर रहें।",
+      "साइट जोड़ने से पहले अच्छी जीपीएस सटीकता का इंतज़ार करें।",
+      "लाइव कैमरा से सभी आवश्यक फ़ोटो क्रम में लें।",
+      "क्रिएटिव और माप को अपने आवंटन से मिलाएँ।",
+      "गैलरी अपलोड की अनुमति नहीं है — केवल लाइव कैमरा।",
+      "सारांश की समीक्षा करें, फिर जमा करें (ऑफ़लाइन सेव व ऑटो-सिंक)।"
+    ],
+    "mr": [
+      "नेमून दिलेल्या साइटवर पोहोचा आणि जिओफेन्स क्षेत्रात रहा.",
+      "साइट जोडण्यापूर्वी चांगल्या जीपीएस अचूकतेची वाट पहा.",
+      "लाइव्ह कॅमेराने सर्व आवश्यक फोटो क्रमाने घ्या.",
+      "क्रिएटिव्ह व मापे तुमच्या वाटपाशी जुळवा.",
+      "गॅलरी अपलोडला परवानगी नाही — फक्त लाइव्ह कॅमेरा.",
+      "सारांश तपासा, नंतर सबमिट करा (ऑफलाइन सेव्ह व ऑटो-सिंक)."
+    ]
+  },
+
+  "appConfig": {
+    "id": 1,
+    "version": 3,
+    "relDate": "2026-08-17",
+
+    "themeConfig": {
+      "headerBackgroundColor": "#1B5E9B",
+      "headerTextColor": "#FFFFFF",
+      "accentColor": "#00A878",
+      "dangerColor": "#D64545",
+      "formBackgroundColor": "#F5F7FA",
+      "formTextColor": "#0D3D6B"
+    },
+
+    "languageConfig": {
+      "default": "en",
+      "supported": ["en", "hi", "mr"]
+    },
+
+    "featureConfig": {
+      "liveCameraOnly": { "active": 1 },
+      "offlineSync": { "active": 1 },
+      "deviceBinding": { "active": 1 },
+      "gpsAuthenticity": {
+        "active": 1,
+        "maxAccuracyMeters": 30,
+        "blockMockLocation": 1,
+        "blockRootedDevice": 0
+      }
+    },
+
+    "geoConfig": {
+      "active": 1,
+      "enforcement": "block",
+      "defaultRadiusMeters": 250,
+      "trackDistance": 1,
+      "zones": [
+        { "id": "z1", "name": "Shirur",       "lat": 18.8267, "lng": 74.3736, "radiusMeters": 400, "active": 1 },
+        { "id": "z2", "name": "Rajgurunagar", "lat": 18.8560, "lng": 73.8880, "radiusMeters": 300, "active": 1 }
+      ]
+    },
+
+    "apiUrls": {
+      "_comment": "OPTIONAL per-installer endpoint overrides. Omit any key to use the app's built-in default (auth.php / data.php / file.php / summary.php / get_offline_dropdown_options.php / jsonUpdate.php / promoter_verification.php). Values may be a path (resolved against API_BASE_URL) or a full https URL. login/OTP run before this JSON loads, so overriding them here only matters for later calls.",
+      "dataUploadUrl": "/data.php",
+      "fileUploadUrl": "/file.php",
+      "summaryUrl": "/summary.php",
+      "offlineDropdownUrl": "/get_offline_dropdown_options.php",
+      "jsonUpdateUrl": "/jsonUpdate.php",
+      "homeScreenUrl": "/home_screen_data.php",
+      "sendOtpUrl": "/promoter_verification.php?type=1",
+      "validateOtpUrl": "/promoter_verification.php?type=2"
+    }
+  },
+
+  "strings": {
+    "en": {
+      "app_title": "RM Pulse Installer",
+      "start": "Start installation",
+      "next": "Next",
+      "back": "Back",
+      "submit": "Submit",
+      "summary_title": "Review",
+      "geofence_blocked": "You are outside the assigned work area.",
+      "mock_detected": "Fake / mock GPS location detected.",
+      "gps_poor": "GPS accuracy is too poor. Move to an open area and retry."
+    },
+    "hi": {
+      "app_title": "आर एम पल्स इंस्टॉलर",
+      "start": "इंस्टॉलेशन शुरू करें",
+      "next": "आगे",
+      "back": "पीछे",
+      "submit": "जमा करें",
+      "summary_title": "समीक्षा",
+      "geofence_blocked": "आप निर्धारित कार्य क्षेत्र के बाहर हैं।",
+      "mock_detected": "नकली / मॉक जीपीएस स्थान का पता चला।",
+      "gps_poor": "जीपीएस सटीकता बहुत कमज़ोर है। खुले स्थान पर जाकर पुनः प्रयास करें।"
+    },
+    "mr": {
+      "app_title": "आर एम पल्स इंस्टॉलर",
+      "start": "इंस्टॉलेशन सुरू करा",
+      "next": "पुढे",
+      "back": "मागे",
+      "submit": "सबमिट करा",
+      "summary_title": "पुनरावलोकन",
+      "geofence_blocked": "तुम्ही नेमून दिलेल्या कार्यक्षेत्राबाहेर आहात.",
+      "mock_detected": "बनावट / मॉक जीपीएस स्थान आढळले.",
+      "gps_poor": "जीपीएस अचूकता खूप कमी आहे. मोकळ्या जागी जाऊन पुन्हा प्रयत्न करा."
+    }
+  },
+
+  "appForms": [
+    {
+      "id": 1,
+      "title": { "en": "Site details", "hi": "साइट का विवरण", "mr": "साइटचा तपशील" },
+      "controls": [
+        {
+          "id": 101,
+          "optype": 4,
+          "label": { "en": "Shop / site name", "hi": "दुकान / साइट का नाम", "mr": "दुकान / साइटचे नाव" },
+          "validations": { "mn": 1, "len": "3-80", "dtype": 2 }
+        },
+        {
+          "id": 102,
+          "optype": 4,
+          "label": { "en": "Owner name", "hi": "मालिक का नाम", "mr": "मालकाचे नाव" },
+          "validations": { "mn": 1, "len": "3-60", "dtype": 2 }
+        },
+        {
+          "id": 103,
+          "optype": 4,
+          "label": { "en": "Contact number", "hi": "संपर्क नंबर", "mr": "संपर्क क्रमांक" },
+          "validations": { "mn": 1, "len": "10-10", "dtype": 1 }
+        },
+        {
+          "id": 104,
+          "optype": 5,
+          "label": { "en": "Wall type", "hi": "दीवार का प्रकार", "mr": "भिंतीचा प्रकार" },
+          "optList": "Brick;Cement;Metal shutter;Other",
+          "validations": { "mn": 1 }
+        },
+        {
+          "_comment": "Cascading dependent dropdown (optype 23). dependentDropdownKey is USER-DEFINED — it must match the `key` field of the get_offline_dropdown_options.php response. Rename it to whatever your API returns; the app never hard-codes it. dependentDropdownLabel / dependentDropdownErrMsg are per-cascade-level (level 1 = first dropdown, level 2 = the one it reveals, …).",
+          "id": 105,
+          "optype": 23,
+          "label": { "en": "Location", "hi": "स्थान", "mr": "स्थान" },
+          "dependentDropdownKey": "adgramList",
+          "_showlevel_comment": "showOtherDetailsLevel controls (a) at which cascade level the otherDetails card/table appears, and (b) how many levels are REQUIRED. showlevel:2 => details show after level 2 and only levels 1-2 are mandatory. Omit it to require the full cascade to a leaf and show the deepest node's details.",
+          "showOtherDetailsLevel": [ { "showlevel": 2 } ],
+          "dependentDropdownLabel": [
+            { "en": "Brand", "hi": "ब्रांड", "mr": "ब्रँड" },
+            { "en": "State", "hi": "राज्य", "mr": "राज्य" },
+            { "en": "District", "hi": "ज़िला", "mr": "जिल्हा" },
+            { "en": "Sub District", "hi": "उप-ज़िला", "mr": "उप-जिल्हा" },
+            { "en": "Census code", "hi": "जनगणना कोड", "mr": "जनगणना कोड" },
+            { "en": "Village / Town", "hi": "गाँव / शहर", "mr": "गाव / शहर" }
+          ],
+          "dependentDropdownErrMsg": [
+            { "en": "Select a brand", "hi": "ब्रांड चुनें", "mr": "ब्रँड निवडा" },
+            { "en": "Select a state", "hi": "राज्य चुनें", "mr": "राज्य निवडा" },
+            { "en": "Select a district", "hi": "ज़िला चुनें", "mr": "जिल्हा निवडा" },
+            { "en": "Select a sub district", "hi": "उप-ज़िला चुनें", "mr": "उप-जिल्हा निवडा" },
+            { "en": "Select a census code", "hi": "जनगणना कोड चुनें", "mr": "जनगणना कोड निवडा" },
+            { "en": "Select a village / town", "hi": "गाँव / शहर चुनें", "mr": "गाव / शहर निवडा" }
+          ],
+          "validations": { "mn": 1 }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": { "en": "Photos", "hi": "फ़ोटो", "mr": "फोटो" },
+      "controls": [
+        {
+          "id": 201,
+          "optype": 6,
+          "label": { "en": "Wall — before painting", "hi": "दीवार — पेंटिंग से पहले", "mr": "भिंत — रंगकामापूर्वी" },
+          "cam_type": 2,
+          "validations": { "mn": 1 }
+        },
+        {
+          "id": 202,
+          "optype": 6,
+          "label": { "en": "Close-up view", "hi": "नज़दीकी दृश्य", "mr": "जवळून दृश्य" },
+          "cam_type": 2,
+          "validations": { "mn": 1 }
+        },
+        {
+          "id": 203,
+          "optype": 21,
+          "label": { "en": "Long / road view", "hi": "दूर / सड़क का दृश्य", "mr": "लांब / रस्ता दृश्य" },
+          "cam_type": 2,
+          "mul": 1,
+          "validations": { "mn": 1 }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": { "en": "Confirmation", "hi": "पुष्टि", "mr": "पुष्टी" },
+      "controls": [
+        {
+          "id": 301,
+          "optype": 14,
+          "label": { "en": "Remarks (optional)", "hi": "टिप्पणी (वैकल्पिक)", "mr": "शेरा (ऐच्छिक)" },
+          "validations": { "mn": 0, "len": "0-300" }
+        },
+        {
+          "id": 302,
+          "optype": 25,
+          "label": { "en": "Installation completed", "hi": "इंस्टॉलेशन पूरा हुआ", "mr": "इंस्टॉलेशन पूर्ण झाले" },
+          "validations": { "mn": 1 }
+        }
+      ]
+    }
+  ]
+}

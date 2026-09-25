@@ -1,0 +1,46 @@
+[
+  {
+    "key": "districtList",
+    "baseLt": null,
+    "baseLg": null,
+    "dropDownItemList": [
+      { "label": "Please select", "value": "", "options": [] },
+
+      {
+        "label": "KURUKSHETRA",
+        "value": "KKR",
+        "options": [
+          { "label": "Please select", "value": "", "options": [] },
+
+          {
+            "label": "Ismailabad (317)(Ct)",
+            "value": "446756",
+            "options": [],
+
+            "_comment": "A LEAF node. When the installer picks this value, everything in otherDetails renders as a modern card + table right below the dropdown.",
+            "otherDetails": {
+
+              "htmlTextList": [
+                { "label": "Shop Name: ",       "value": "Sharma General Store",  "boldLabel": true },
+                { "label": "Address: ",         "value": "Main Bazaar, Ismailabad", "boldLabel": true },
+                { "label": "Contact Number: ",  "value": "98765 43210",           "boldLabel": true },
+                { "label": "Shop Type: ",       "value": "Kirana",                "boldLabel": true }
+              ],
+
+              "_htmlText_comment": "OPTIONAL alternative to htmlTextList: send one ready-made HTML string. Only <b>/<strong> and <br> are styled.",
+              "htmlText": "<b>Shop Name: </b>Sharma General Store<br><b>Address: </b>Main Bazaar, Ismailabad",
+
+              "table": {
+                "headers": ["Creative", "Size", "Qty"],
+                "rows": [
+                  ["Creative A", "8x3 ft", "5"],
+                  ["Creative B", "10x4 ft", "3"]
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
