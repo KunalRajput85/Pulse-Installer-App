@@ -133,6 +133,33 @@ class AppState extends ChangeNotifier {
         .toList();
   }
 
+  // ---- dependent-dropdown auto-refresh (opt-in via the JSON key `is_refresh`) ----
+  bool _dropdownDirty = false;
+
+  /// True when the loaded config has a dependent dropdown flagged `is_refresh`.
+  bool get _dropdownRefreshEnabled => forms.any((page) => page.controls.any(
+      (c) => c.opType == OpType.dependentDropdown && c.refreshOnSubmit));
+
+  /// Whether the next capture should first pull fresh dropdown options.
+  bool get dropdownNeedsRefresh => _dropdownDirty;
+
+  /// Call right after a record is submitted: remember to refresh the dependent
+  /// dropdown before the next capture — only if a dropdown opted in.
+  void markDropdownDirtyAfterSubmit() {
+    if (_dropdownRefreshEnabled) _dropdownDirty = true;
+  }
+
+  /// Call when the installer taps "Start installation": if a submit happened
+  /// and a dropdown opted in, pull fresh options first (best-effort, bounded so
+  /// it never blocks; keeps cached options when offline / on error).
+  Future<void> refreshDropdownIfDirty() async {
+    if (!_dropdownDirty) return;
+    try {
+      await offlineDropdown.refresh().timeout(const Duration(seconds: 8));
+    } catch (_) {/* keep cached options */}
+    _dropdownDirty = false;
+  }
+
   /// The signed-in team/installer name saved at login (shown in the header).
   Future<String?> teamName() => auth.clientName();
 
