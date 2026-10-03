@@ -12,6 +12,26 @@ import 'upload_screen.dart';
 /// team name, a summary dashboard fed ONLY by the server's `summaryUrl`, an
 /// "Installation guidelines" popup, the primary START INSTALLATION action, and
 /// a bottom navigation bar. Language + refresh + logout live in the header menu.
+/// Opens a new capture screen. If a prior submit flagged the dependent dropdown
+/// for refresh (JSON key `is_refresh`), pull fresh options first behind a brief
+/// loader. Top-level so both the home screen and the rework card can call it.
+Future<void> _startCapture(BuildContext context) async {
+  final app = context.read<AppState>();
+  if (app.dropdownNeedsRefresh) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => const Center(child: CircularProgressIndicator()),
+    );
+    await app.refreshDropdownIfDirty();
+    if (context.mounted) Navigator.of(context).pop();
+  }
+  if (!context.mounted) return;
+  Navigator.of(context).push(
+    MaterialPageRoute(builder: (_) => const SurveyScreen()),
+  );
+}
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -83,9 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
           GradientButton(
             label: app.t('start'),
             icon: Icons.play_arrow,
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SurveyScreen()),
-            ),
+            onPressed: () => _startCapture(context),
           ),
         ],
       ),
@@ -614,9 +632,7 @@ class _ReworkCard extends StatelessWidget {
             label: 'Start rework',
             icon: Icons.play_arrow,
             height: 46,
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SurveyScreen()),
-            ),
+            onPressed: () => _startCapture(context),
           ),
         ],
       ),

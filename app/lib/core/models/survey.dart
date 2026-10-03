@@ -135,6 +135,9 @@ class Control {
 
   // Skip logic
   final bool skip;
+  /// Dependent dropdown only: when the JSON control has `is_refresh`, the
+  /// dependent-dropdown options are re-fetched after a submit (see AppState).
+  final bool refreshOnSubmit;
   final List<String> skipLogic; // page ids per option index
 
   // Media
@@ -182,6 +185,7 @@ class Control {
     this.rows = const [],
     this.cols = const [],
     this.skip = false,
+    this.refreshOnSubmit = false,
     this.skipLogic = const [],
     this.file,
     this.camType = 1,
@@ -210,6 +214,10 @@ class Control {
     if (dtype != null && m['dtype'] == null) m['dtype'] = dtype;
     return m;
   }
+
+  /// Truthy check for JSON flag keys (1 / "1" / true / "true").
+  static bool _flag(dynamic v) =>
+      v == true || v == 1 || v == '1' || (v is String && v.toLowerCase() == 'true');
 
   static List<String> _split(dynamic v) {
     // Accept BOTH a JSON array (["Height","Width"]) and a legacy ';'-joined
@@ -307,6 +315,7 @@ class Control {
       rows: _split(j['optRow']),
       cols: _split(j['optCol']),
       skip: (j['skipFlag'] as num?)?.toInt() == 1,
+      refreshOnSubmit: _flag(j['is_refresh']),
       skipLogic: _split(j['skipLogic']),
       file: j['file'],
       camType: (j['cam_type'] as num?)?.toInt() ?? 1,

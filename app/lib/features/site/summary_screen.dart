@@ -33,6 +33,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
 
     await app.store.saveResponse(response.copyWith(status: SyncStatus.queued));
     app.sync.syncNow(); // fire-and-forget; stays queued offline
+    app.markDropdownDirtyAfterSubmit(); // refresh dependent dropdown on next capture (is_refresh)
 
     if (!mounted) return;
     showDialog(
